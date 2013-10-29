@@ -1,5 +1,7 @@
 package com.sfdc.demo;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -25,10 +27,9 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadController {
 	
 	@Autowired
-	private CalcsDAO tmc;
+	private FileUploadDAO fileUploadDAO;
 	
-	@Autowired
-	private BillingDAO billing;
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
 	
@@ -74,21 +75,7 @@ public class FileUploadController {
 		return "upload";
 	}
 	
-	 @RequestMapping(value = "/rest/calcs", method = RequestMethod.GET)
-	public @ResponseBody Map<String, String> getCalcs(@RequestParam("year") String year
-	                            , @RequestParam("state") String state
-	                            , @RequestParam("transport_type") String transportType
-	                            , @RequestParam("transport_units") String transUnits)
-	{
-		Map<String,String> vals = tmc.getCalcs(state,transUnits,transportType,year);
-		for (Map.Entry<String,String> entry : vals.entrySet()) {
-			  String key = entry.getKey();
-			  String value = entry.getValue();
-			  System.out.println(key + ":" + value);
-			  
-			}
-		return vals;
-	} 
+	
 	 
 	 @RequestMapping(value = "/upload", method = RequestMethod.POST)
 	    public String upload(
@@ -105,6 +92,15 @@ public class FileUploadController {
 	                String fileName = uploadedFile.getOriginalFilename();
 	           
 	                //Handle file content - multipartFile.getInputStream()
+	                try {
+						fileUploadDAO.uploadFile(fileName, fileName, uploadedFile.getInputStream());
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	                modelMap.addAttribute("file", fileName);
 	            }
 	        
