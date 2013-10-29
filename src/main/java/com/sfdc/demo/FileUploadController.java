@@ -97,9 +97,11 @@ public class FileUploadController {
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
+						modelMap.addAttribute("error", e.getMessage());
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
+						modelMap.addAttribute("error", e.getMessage());
 					}
 	                modelMap.addAttribute("file", fileName);
 	            }

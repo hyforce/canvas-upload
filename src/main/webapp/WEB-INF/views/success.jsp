@@ -9,6 +9,6 @@
 	Upload Successful! 
 </h1>
 
-<P>  ${file} was uploaded successfully </P>
+<P>  ${file} was uploaded successfully or with error: ${error}</P>
 </body>
 </html>
