@@ -1,5 +1,6 @@
 package com.sfdc.demo;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.text.DecimalFormat;
@@ -17,13 +18,13 @@ public class FileUploadDAO {
 	BasicDataSource dataSource;
 
 	public void uploadFile(String fileName,String sfdcId, InputStream fileStream)
-			throws SQLException {
+			throws SQLException, IOException {
 		Connection conn = dataSource.getConnection();
 		
 		PreparedStatement ps = conn.prepareStatement("INSERT INTO sfdc_files(sfdc_id,file_name,file) VALUES (?,?, ?)");
 		ps.setString(1, sfdcId);
 		ps.setString(2,fileName);
-		ps.setBinaryStream(3, fileStream);
+		ps.setBinaryStream(3,fileStream,fileStream.available());
 		ps.executeUpdate();
 		conn.close();
 		
