@@ -56,6 +56,24 @@ public class FileUploadController {
 		return "home";
 	}
 	
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	@RequestMapping(value = "/uploadPage", method = RequestMethod.GET)
+	public String uploadPage(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		
+		return "upload";
+	}
+	
 	 @RequestMapping(value = "/rest/calcs", method = RequestMethod.GET)
 	public @ResponseBody Map<String, String> getCalcs(@RequestParam("year") String year
 	                            , @RequestParam("state") String state
