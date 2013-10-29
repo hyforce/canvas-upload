@@ -91,7 +91,7 @@ public class FileUploadController {
 	} 
 	 
 	 @RequestMapping(value = "/upload", method = RequestMethod.POST)
-	    public String save(
+	    public String upload(
 	            @ModelAttribute("uploadForm") FileUploadForm uploadForm,
 	                    Model modelMap) {
 	         
