@@ -1,6 +1,7 @@
 package com.sfdc.demo;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.util.Date;
@@ -19,6 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import canvas.CanvasRequest;
+import canvas.SignedRequest;
 
 /**
  * Handles requests for the application home page.
@@ -64,9 +68,9 @@ public class FileUploadController {
 	public String uploadPage(@RequestParam("signed_request") String signedRequestParam,Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
+		String signedRequest = SignedRequest.verifyAndDecodeAsJson(signedRequestParam, "9120955182827941175");
 		
-		
-		model.addAttribute("signed_request", signedRequestParam );
+		model.addAttribute("signed_request", signedRequest );
 		
 		
 		return "upload";
