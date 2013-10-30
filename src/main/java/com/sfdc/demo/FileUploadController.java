@@ -75,13 +75,11 @@ public class FileUploadController {
 	
 	 
 	 @RequestMapping(value = "/upload", method = RequestMethod.POST)
-	    public String upload(
-	    		@RequestParam(value="sObjectId",defaultValue="") String sObjectId,
-	            @ModelAttribute("uploadForm") FileUploadForm uploadForm,
+	    public String upload(@ModelAttribute("uploadForm") FileUploadForm uploadForm,
 	                    Model modelMap) {
 	         
 	        MultipartFile uploadedFile = uploadForm.getFile();
-	 
+	        String sObjectId = uploadForm.getsObjectId();
 	        
 	         
 	        if(null != uploadedFile) {
