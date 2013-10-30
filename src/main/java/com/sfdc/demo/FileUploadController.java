@@ -51,13 +51,7 @@ public class FileUploadController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		/* Map<String,String> vals = tmc.getCalcs("Alabama","1","Air","2007");
-		for (Map.Entry<String,String> entry : vals.entrySet()) {
-			  String key = entry.getKey();
-			  String value = entry.getValue();
-			  System.out.println(key + ":" + value);
-			  
-			} */
+		
 		return "home";
 	}
 	
@@ -65,13 +59,15 @@ public class FileUploadController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/uploadPage", method = RequestMethod.POST)
-	public String uploadPage(@RequestParam("signed_request") String signedRequestParam,Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	public String uploadPage(@RequestParam(value="signed_request",defaultValue="") String signedRequestParam,
+			                 @RequestParam(value="sObjectId",defaultValue="") String sObjectId,
+			                 Locale locale, Model model) {
+		
 		
 		String signedRequest = SignedRequest.verifyAndDecodeAsJson(signedRequestParam, "9120955182827941175");
 		
 		model.addAttribute("signed_request", signedRequest );
-		
+		model.addAttribute("sObjectId", sObjectId );
 		
 		return "upload";
 	}
@@ -80,6 +76,7 @@ public class FileUploadController {
 	 
 	 @RequestMapping(value = "/upload", method = RequestMethod.POST)
 	    public String upload(
+	    		@RequestParam(value="sObjectId",defaultValue="") String sObjectId,
 	            @ModelAttribute("uploadForm") FileUploadForm uploadForm,
 	                    Model modelMap) {
 	         
@@ -94,7 +91,7 @@ public class FileUploadController {
 	           
 	                //Handle file content - multipartFile.getInputStream()
 	                try {
-						fileUploadDAO.uploadFile(fileName, fileName, uploadedFile.getInputStream());
+						fileUploadDAO.uploadFile(fileName, sObjectId, uploadedFile.getInputStream());
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
