@@ -60,14 +60,14 @@ public class FileUploadController {
 	 */
 	@RequestMapping(value = "/uploadPage", method = RequestMethod.POST)
 	public String uploadPage(@RequestParam(value="signed_request",defaultValue="") String signedRequestParam,
-			                 @RequestParam(value="sObjectId",defaultValue="") String sObjectId,
 			                 Locale locale, Model model) {
 		
 		
-		String signedRequest = SignedRequest.verifyAndDecodeAsJson(signedRequestParam, "9120955182827941175");
+		CanvasRequest canvasRequest =  SignedRequest.verifyAndDecode(signedRequestParam, "9120955182827941175");
 		
-		model.addAttribute("signed_request", signedRequest );
-		model.addAttribute("sObjectId", sObjectId );
+		Map<String, Object> parameters = canvasRequest.getContext().getEnvironmentContext().getParameters();
+		
+		model.addAttribute("sObjectId", parameters.get("sObjectId")) ;
 		
 		return "upload";
 	}

@@ -23,7 +23,7 @@
     </table>
     <br/><input type="submit" value="upload" />
     <p> SobjectId : ${sObjectId} </p>
-    <p> Signed Request: ${signed_request} </p>
+   
     <input type="hidden" value="${sObjectId}" />
 </form:form>
 </body>
