@@ -61,15 +61,12 @@ public class FileUploadController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/uploadPage", method = RequestMethod.GET)
-	public String uploadPage(Locale locale, Model model) {
+	public String uploadPage(@RequestParam("signed_request") String signedRequestParam,Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
-		String formattedDate = dateFormat.format(date);
 		
-		model.addAttribute("serverTime", formattedDate );
+		model.addAttribute("signed_request", signedRequestParam );
 		
 		
 		return "upload";

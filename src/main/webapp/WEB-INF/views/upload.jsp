@@ -20,6 +20,8 @@
         
     </table>
     <br/><input type="submit" value="upload" />
+    
+    <p> Signed Request: {signed_request} </p>
 </form:form>
 </body>
 </html>
