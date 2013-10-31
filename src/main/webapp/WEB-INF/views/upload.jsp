@@ -34,7 +34,7 @@
              
         
           <tr>  
-            <td style="width:100px" />  
+              
             <td style="font-size:10px;"><a href=""><c:out value="${file.fileName}"/></a> </td>  
             <td style="font-size:10px;"><a href="/delete?id=${file.id}&sObjectId=${file.sObjectId}">Delete</a></td>  
           </tr>  
@@ -44,8 +44,9 @@
       </td>
       </tr>  
     </table>
-				<table>
+				<table style="width:400px">
 				<tr>
+				    <td style="width:100px" />
 				    <td><input style="font-size:12px;width:85px;" type="submit" value="upload" /></td>
 					<td><input style="font-size:11px;" name="file" type="file" /></td>
 					<td><input style="font-size:10px;" name="sObjectId" type="hidden" value="${sObjectId}"/></td>
