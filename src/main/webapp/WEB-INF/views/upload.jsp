@@ -19,8 +19,8 @@
 			<div class="col-md-4">
 				
 				<div class="row">
-					<div class="col-md-6"><input name="file" type="file" /></div>
-					<div class="col-md-6"><input type="submit" value="upload" /></div>
+					<div class="col-md-6"><input class="btn btn-primary" name="file" type="file" /></div>
+					<div class="col-md-6"><input class="btn btn-success" type="submit" value="upload" /></div>
 				</div>
 			</div>
 		</div>
