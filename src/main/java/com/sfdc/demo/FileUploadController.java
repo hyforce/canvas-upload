@@ -86,7 +86,7 @@ public class FileUploadController {
 	                    Model modelMap) {
 	         
 	        MultipartFile uploadedFile = uploadForm.getFile();
-	        String sObjectId = "";
+	        String sObjectId = uploadForm.getsObjectId();
 	        
 	         
 	        if(null != uploadedFile) {
