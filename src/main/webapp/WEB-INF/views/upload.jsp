@@ -31,8 +31,8 @@
         
           <tr>  
               
-            <td style="font-size:12px;"><a href=""><c:out value="${file.fileName}"/></a> </td>  
-            <td style="font-size:12px;"><a href="/delete?id=${file.id}&sObjectId=${file.sObjectId}">Delete</a></td>  
+            <td style="font-size:10px;"><a href=""><c:out value="${file.fileName}"/></a> </td>  
+            <td style="font-size:10px;"><a href="/delete?id=${file.id}&sObjectId=${file.sObjectId}">Delete</a></td>  
           </tr>  
         </c:forEach>    
         </tbody>  
@@ -40,9 +40,9 @@
 
 				<table>
 				<tr>
-				    <td><input style="font-size:12px;" type="submit" value="upload" /></td>
-					<td><input style="font-size:12px;" name="file" type="file" /></td>
-					<td><input style="font-size:12px;" name="sObjectId" type="hidden" value="${sObjectId}"/></td>
+				    <td><input style="font-size:10px;" type="submit" value="upload" /></td>
+					<td><input style="font-size:10px;" name="file" type="file" /></td>
+					<td><input style="font-size:10px;" name="sObjectId" type="hidden" value="${sObjectId}"/></td>
 					
 				</tr>
 				</table>

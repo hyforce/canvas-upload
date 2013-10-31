@@ -62,13 +62,15 @@ public class FileUploadController {
 	public String uploadPage(@RequestParam(value="signed_request",defaultValue="") String signedRequestParam,
 			                 Locale locale, Model model) {
 		
+		String sObjectId = "";
+		if(signedRequestParam != null && !"".equals(signedRequestParam))
+		{
+		  CanvasRequest canvasRequest =  SignedRequest.verifyAndDecode(signedRequestParam, "9120955182827941175");
 		
-		CanvasRequest canvasRequest =  SignedRequest.verifyAndDecode(signedRequestParam, "9120955182827941175");
-		
-		Map<String, Object> parameters = canvasRequest.getContext().getEnvironmentContext().getParameters();
-		String sObjectId = (String)parameters.get("sObjectId");
-		model.addAttribute("sObjectId", sObjectId) ;
-		
+		  Map<String, Object> parameters = canvasRequest.getContext().getEnvironmentContext().getParameters();
+		  sObjectId = (String)parameters.get("sObjectId");
+	      model.addAttribute("sObjectId", sObjectId) ;
+		}
 		try {
 			model.addAttribute("uploadedFiles",fileUploadDAO.getFilesForSObject(sObjectId));
 		} catch (SQLException e) {
