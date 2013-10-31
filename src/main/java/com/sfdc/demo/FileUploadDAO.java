@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,4 +31,25 @@ public class FileUploadDAO {
 		
 	}
 	
+	public ArrayList<String> getFileNames()
+			throws SQLException {
+		Connection conn = dataSource.getConnection();
+		
+
+		
+		Statement st = conn.createStatement();
+		
+		
+		
+		ResultSet rs = st.executeQuery("select file_name from sfdc_files");
+        ArrayList<String> results = new ArrayList<String>();
+		while (rs.next()) {
+			results.add(rs.getString("file_name"));
+		}
+		conn.close();
+		return results;
+	}
+		
 }
+	
+

@@ -15,7 +15,30 @@
 	<form:form method="post" action="upload" modelAttribute="uploadForm"
 		enctype="multipart/form-data">
 
-		
+		       <p> Uploaded Files </p>
+		       <table class="table">  
+        <thead>  
+          <tr>  
+            <th>File Name</th>  
+            <th></th>  
+            <th></th>  
+            
+          </tr>  
+        </thead>  
+        <tbody>  
+          <c:forEach var="fileName" items="${uploadedFiles}"> 
+             
+        
+          <tr>  
+              
+            <td><c:out value="${fileName}"/> </td>  
+            <td>View</td>  
+            <td>Delete</td>  
+          </tr>  
+        </c:forEach>    
+        </tbody>  
+      </table>  
+- See more at: http://www.w3resource.com/twitter-bootstrap/tables-tutorial.php#sthash.warI2ozN.dpuf
 				<table>
 				<tr>
 					<td><input name="file" type="file" /></td>

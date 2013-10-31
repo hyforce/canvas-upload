@@ -69,6 +69,13 @@ public class FileUploadController {
 		
 		model.addAttribute("sObjectId", parameters.get("sObjectId")) ;
 		
+		try {
+			model.addAttribute("uploadedFiles",fileUploadDAO.getFileNames());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return "upload";
 	}
 	
@@ -90,6 +97,7 @@ public class FileUploadController {
 	                //Handle file content - multipartFile.getInputStream()
 	                try {
 						fileUploadDAO.uploadFile(fileName, sObjectId, uploadedFile.getInputStream());
+						modelMap.addAttribute("uploadedFiles",fileUploadDAO.getFileNames());
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
