@@ -11,21 +11,19 @@
 </head>
 <body>
 
-   <div class="container">
+  
 	<form:form method="post" action="upload" modelAttribute="uploadForm"
 		enctype="multipart/form-data">
 
-		<div class="row">
-			<div class="col-md-4">
-				
-				<div class="row">
-					<div class="col-md-6"><input class="btn btn-primary" name="file" type="file" /></div>
-					<div class="col-md-6"><input class="btn btn-success" type="submit" value="upload" /></div>
-				</div>
-			</div>
-		</div>
+		
+				<table>
+				<tr>
+					<td><input name="file" type="file" /></td>
+					<td><input class="btn btn-success" type="submit" value="upload" /></td>
+				</tr>
+				</table>
 	</form:form>
-	</div>
+	
 	<script
 		src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
 </body>
