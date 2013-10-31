@@ -11,7 +11,7 @@
 </head>
 <body>
 
-
+   <div class="container">
 	<form:form method="post" action="upload" modelAttribute="uploadForm"
 		enctype="multipart/form-data">
 
@@ -25,17 +25,8 @@
 				</div>
 			</div>
 		</div>
-		
-
-
-
-
-
-
-
-
-
 	</form:form>
+	</div>
 	<script
 		src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
 </body>
