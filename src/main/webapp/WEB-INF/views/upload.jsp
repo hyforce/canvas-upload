@@ -42,7 +42,7 @@
 				<tr>
 				    <td><input style="font-size:12px;" type="submit" value="upload" /></td>
 					<td><input style="font-size:12px;" name="file" type="file" /></td>
-					<td><input style="font-size:12px;" name="sObjectId" type="text" value="${sObjectId}"/></td>
+					<td><input style="font-size:12px;" name="sObjectId" type="hidden" value="${sObjectId}"/></td>
 					
 				</tr>
 				</table>
