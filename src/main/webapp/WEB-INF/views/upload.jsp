@@ -19,7 +19,7 @@
 		       <table class="table">  
         <thead>  
           <tr>  
-            <th style="font-size:12px;">Uploaded Files</th>  
+            <th style="font-size:10px;">Uploaded Files</th>  
             <th></th>  
             <th></th>  
             

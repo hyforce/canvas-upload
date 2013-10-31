@@ -60,6 +60,7 @@ public class FileUploadController {
 	 */
 	@RequestMapping(value = "/uploadPage", method = {RequestMethod.POST,RequestMethod.GET} )
 	public String uploadPage(@RequestParam(value="signed_request",defaultValue="") String signedRequestParam,
+			                 @RequestParam(value="sObjectId",defaultValue="") String sObjectIdParam ,
 			                 Locale locale, Model model) {
 		
 		String sObjectId = "";
@@ -70,6 +71,9 @@ public class FileUploadController {
 		  Map<String, Object> parameters = canvasRequest.getContext().getEnvironmentContext().getParameters();
 		  sObjectId = (String)parameters.get("sObjectId");
 	      model.addAttribute("sObjectId", sObjectId) ;
+		}
+		else{
+			sObjectId = sObjectIdParam;
 		}
 		try {
 			model.addAttribute("uploadedFiles",fileUploadDAO.getFilesForSObject(sObjectId));
