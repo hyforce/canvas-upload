@@ -16,7 +16,7 @@
 		enctype="multipart/form-data">
 
 		      
-		       <table class="table" width="300">  
+		       <table class="table">  
         <thead>  
           <tr>  
             <th style="font-size:10px;">Uploaded Files</th>  
