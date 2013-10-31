@@ -113,6 +113,6 @@ public class FileUploadController {
 	        
 	        
 	        
-	        return "success";
+	        return "upload";
 	    }
 }
