@@ -26,13 +26,13 @@
           </tr>  
         </thead>  
         <tbody>  
-          <c:forEach var="fileName" items="${uploadedFiles}"> 
+          <c:forEach var="file" items="${uploadedFiles}"> 
              
         
           <tr>  
               
-            <td style="font-size:12px;"><a href=""><c:out value="${fileName}"/></a> </td>  
-            <td style="font-size:12px;"><a href="/delete?fileName="${fileName}">Delete</a></td>  
+            <td style="font-size:12px;"><a href=""><c:out value="${file.fileName}"/></a> </td>  
+            <td style="font-size:12px;"><a href="/delete?id=${file.id}&sObjectId=${file.sObjectId}">Delete</a></td>  
           </tr>  
         </c:forEach>    
         </tbody>  

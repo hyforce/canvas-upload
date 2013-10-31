@@ -31,27 +31,32 @@ public class FileUploadDAO {
 		
 	}
 	
-	public ArrayList<String> getFileNames()
+	public ArrayList<FileObj> getFilesForSObject(String sObjectId)
 			throws SQLException {
 		Connection conn = dataSource.getConnection();
 		
 
 		
 		Statement st = conn.createStatement();
-		ResultSet rs = st.executeQuery("select file_name from sfdc_files");
-        ArrayList<String> results = new ArrayList<String>();
+		ResultSet rs = st.executeQuery("select id,file_name,sfdc_if from sfdc_files where sfdc_id='" + sObjectId + "'");
+        ArrayList<FileObj> results = new ArrayList<FileObj>();
 		while (rs.next()) {
-			results.add(rs.getString("file_name"));
+			FileObj file = new FileObj();
+			file.setFileName(rs.getString("file_name"));
+			file.setId(rs.getLong("id"));
+			file.setsObjectId(rs.getString("sfdc_id"));
+			
+			results.add(file);
 		}
 		conn.close();
 		return results;
 	}
 	
-	public void deleteFile(String fileName)
+	public void deleteFile(String id)
 			throws SQLException {
 		Connection conn = dataSource.getConnection();
 		Statement st = conn.createStatement();
-		boolean rs = st.execute("delete from sfdc_files where file_name ='" + fileName + "'");
+		boolean rs = st.execute("delete from sfdc_files where id =" + id + "");
 		conn.close();
 		
 	}

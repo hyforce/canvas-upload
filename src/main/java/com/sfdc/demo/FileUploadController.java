@@ -66,11 +66,11 @@ public class FileUploadController {
 		CanvasRequest canvasRequest =  SignedRequest.verifyAndDecode(signedRequestParam, "9120955182827941175");
 		
 		Map<String, Object> parameters = canvasRequest.getContext().getEnvironmentContext().getParameters();
-		
-		model.addAttribute("sObjectId", parameters.get("sObjectId")) ;
+		String sObjectId = (String)parameters.get("sObjectId");
+		model.addAttribute("sObjectId", sObjectId) ;
 		
 		try {
-			model.addAttribute("uploadedFiles",fileUploadDAO.getFileNames());
+			model.addAttribute("uploadedFiles",fileUploadDAO.getFilesForSObject(sObjectId));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -97,7 +97,8 @@ public class FileUploadController {
 	                //Handle file content - multipartFile.getInputStream()
 	                try {
 						fileUploadDAO.uploadFile(fileName, sObjectId, uploadedFile.getInputStream());
-						modelMap.addAttribute("uploadedFiles",fileUploadDAO.getFileNames());
+						modelMap.addAttribute("uploadedFiles",fileUploadDAO.getFilesForSObject(sObjectId));
+						modelMap.addAttribute("sObjectId",sObjectId);
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -118,11 +119,11 @@ public class FileUploadController {
 
 
 @RequestMapping(value = "/delete", method = {RequestMethod.POST,RequestMethod.GET} )
-public String deleteFile(@RequestParam(value="fileName") String fileName,
+public String deleteFile(@RequestParam(value="id") String id,@RequestParam(value="sObjectId") String sObjectId,
 		                 Locale locale, Model model) {
 	try {
-		fileUploadDAO.deleteFile(fileName);
-		model.addAttribute("uploadedFiles",fileUploadDAO.getFileNames());
+		fileUploadDAO.deleteFile(id);
+		model.addAttribute("uploadedFiles",fileUploadDAO.getFilesForSObject(sObjectId));
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
