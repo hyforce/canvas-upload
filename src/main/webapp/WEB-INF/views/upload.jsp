@@ -3,28 +3,28 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <title>File Upload</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
-<h1>File Upload</h1>
+
  
 <form:form method="post" action="upload"
         modelAttribute="uploadForm" enctype="multipart/form-data">
- 
-    <p>Select file to upload</p>
+    <div>
+      <input name="file" type="file" /> <input type="submit" value="upload" />
+    </div>
+    
  
     
-    <table id="fileTable">
-        <tr>
-            <td><input name="file" type="file" /></td>
-        </tr>
-        
-    </table>
-    <br/><input type="submit" value="upload" />
-    <p> SobjectId : ${sObjectId} </p>
+            
+    
    
-    <input type="hidden" value="${sObjectId}" />
+    
+   
+    
 </form:form>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
 </body>
 </html>

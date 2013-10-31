@@ -79,7 +79,7 @@ public class FileUploadController {
 	                    Model modelMap) {
 	         
 	        MultipartFile uploadedFile = uploadForm.getFile();
-	        String sObjectId = uploadForm.getsObjectId();
+	        String sObjectId = "";
 	        
 	         
 	        if(null != uploadedFile) {
@@ -100,6 +100,7 @@ public class FileUploadController {
 						modelMap.addAttribute("error", e.getMessage());
 					}
 	                modelMap.addAttribute("file", fileName);
+	                
 	            }
 	        
 	        
