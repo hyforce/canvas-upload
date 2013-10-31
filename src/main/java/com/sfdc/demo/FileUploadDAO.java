@@ -38,7 +38,7 @@ public class FileUploadDAO {
 
 		
 		Statement st = conn.createStatement();
-		ResultSet rs = st.executeQuery("select id,file_name,sfdc_if from sfdc_files where sfdc_id='" + sObjectId + "'");
+		ResultSet rs = st.executeQuery("select id,file_name,sfdc_id from sfdc_files where sfdc_id='" + sObjectId + "'");
         ArrayList<FileObj> results = new ArrayList<FileObj>();
 		while (rs.next()) {
 			FileObj file = new FileObj();
