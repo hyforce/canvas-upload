@@ -40,7 +40,7 @@
 
 				<table>
 				<tr>
-				    <td><input style="font-size:11px;" type="submit" value="upload" /></td>
+				    <td><input style="font-size:12px;width:25px;" type="submit" value="upload" /></td>
 					<td><input style="font-size:11px;" name="file" type="file" /></td>
 					<td><input style="font-size:10px;" name="sObjectId" type="hidden" value="${sObjectId}"/></td>
 					
