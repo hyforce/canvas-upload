@@ -19,7 +19,7 @@
 		       <table class="table">  
         <thead>  
           <tr>  
-            <th style="font-size:10px;">File Name</th>  
+            <th style="font-size:15px;">File Name</th>  
             <th></th>  
             <th></th>  
             
@@ -31,9 +31,9 @@
         
           <tr>  
               
-            <td><c:out value="${fileName}"/> </td>  
-            <td>View</td>  
-            <td>Delete</td>  
+            <td style="font-size:15px;"><c:out value="${fileName}"/> </td>  
+            <td style="font-size:15px;">View</td>  
+            <td style="font-size:15px;">Delete</td>  
           </tr>  
         </c:forEach>    
         </tbody>  
@@ -41,8 +41,8 @@
 
 				<table>
 				<tr>
-					<td><input name="file" type="file" /></td>
-					<td><input class="btn btn-success" type="submit" value="upload" /></td>
+					<td><input style="font-size:15px;" name="file" type="file" /></td>
+					<td><input class="btn" style="font-size:15px;" type="submit" value="upload" /></td>
 				</tr>
 				</table>
 	</form:form>
