@@ -34,7 +34,7 @@
              
         
           <tr>  
-              
+            <td style="width:100px" />  
             <td style="font-size:10px;"><a href=""><c:out value="${file.fileName}"/></a> </td>  
             <td style="font-size:10px;"><a href="/delete?id=${file.id}&sObjectId=${file.sObjectId}">Delete</a></td>  
           </tr>  
