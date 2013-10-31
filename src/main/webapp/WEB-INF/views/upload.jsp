@@ -19,7 +19,7 @@
 		       <table class="table">  
         <thead>  
           <tr>  
-            <th style="font-size:20px;">File Name</th>  
+            <th style="font-size:10px;">File Name</th>  
             <th></th>  
             <th></th>  
             
