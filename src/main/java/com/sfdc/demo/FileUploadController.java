@@ -124,6 +124,7 @@ public String deleteFile(@RequestParam(value="id") String id,@RequestParam(value
 	try {
 		fileUploadDAO.deleteFile(id);
 		model.addAttribute("uploadedFiles",fileUploadDAO.getFilesForSObject(sObjectId));
+		model.addAttribute("sObjectId",sObjectId);
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
