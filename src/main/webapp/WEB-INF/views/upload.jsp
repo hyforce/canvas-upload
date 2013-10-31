@@ -31,8 +31,8 @@
         
           <tr>  
               
-            <td style="font-size:12px;"><a><c:out value="${fileName}"/></a> </td>  
-            <td style="font-size:12px;"><a>Delete</a></td>  
+            <td style="font-size:12px;"><a href=""><c:out value="${fileName}"/></a> </td>  
+            <td style="font-size:12px;"><a href="">Delete</a></td>  
           </tr>  
         </c:forEach>    
         </tbody>  
