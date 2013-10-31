@@ -15,8 +15,12 @@
 	<form:form method="post" action="upload" modelAttribute="uploadForm"
 		enctype="multipart/form-data">
 
-		      
-		       <table class="table" style="width:300px">  
+	  <table style="width:400px">
+	  <tr>
+	  	<td style="width:100px">
+	  	</td>      
+	  	<td>
+		<table class="table" style="width:300px">  
         <thead>  
           <tr>  
             <th style="font-size:10px;">Uploaded Files</th>  
@@ -36,8 +40,10 @@
           </tr>  
         </c:forEach>    
         </tbody>  
-      </table>  
-
+      </table>
+      </td>
+      </tr>  
+    </table>
 				<table>
 				<tr>
 				    <td><input style="font-size:12px;width:85px;" type="submit" value="upload" /></td>
