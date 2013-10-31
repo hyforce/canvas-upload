@@ -32,7 +32,7 @@
           <tr>  
               
             <td style="font-size:12px;"><a href=""><c:out value="${fileName}"/></a> </td>  
-            <td style="font-size:12px;"><a href="">Delete</a></td>  
+            <td style="font-size:12px;"><a href="/delete?fileName="${fileName}">Delete</a></td>  
           </tr>  
         </c:forEach>    
         </tbody>  

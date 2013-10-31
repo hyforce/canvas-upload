@@ -38,9 +38,6 @@ public class FileUploadDAO {
 
 		
 		Statement st = conn.createStatement();
-		
-		
-		
 		ResultSet rs = st.executeQuery("select file_name from sfdc_files");
         ArrayList<String> results = new ArrayList<String>();
 		while (rs.next()) {
@@ -49,7 +46,15 @@ public class FileUploadDAO {
 		conn.close();
 		return results;
 	}
+	
+	public void deleteFile(String fileName)
+			throws SQLException {
+		Connection conn = dataSource.getConnection();
+		Statement st = conn.createStatement();
+		boolean rs = st.execute("delete from sfdc_files where file_name ='" + fileName + "'");
+		conn.close();
 		
+	}
 }
 	
 

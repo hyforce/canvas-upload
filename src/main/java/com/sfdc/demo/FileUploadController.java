@@ -115,4 +115,25 @@ public class FileUploadController {
 	        
 	        return "upload";
 	    }
+
+
+@RequestMapping(value = "/delete", method = {RequestMethod.POST,RequestMethod.GET} )
+public String deleteFile(@RequestParam(value="fileName",defaultValue="") String fileName,
+		                 Locale locale, Model model) {
+	
+	
+	
+	
+	
+	
+	try {
+		fileUploadDAO.deleteFile(fileName);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	return "upload";
+}
+
 }
