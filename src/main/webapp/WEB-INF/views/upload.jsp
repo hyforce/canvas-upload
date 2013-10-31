@@ -20,8 +20,7 @@
 				
 				<div class="row">
 					<div class="col-md-6"><input name="file" type="file" /></div>
-					<div class="col-md-6"><input type="submit"
-				value="upload" /></div>
+					<div class="col-md-6"><input type="submit" value="upload" /></div>
 				</div>
 			</div>
 		</div>

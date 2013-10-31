@@ -58,7 +58,7 @@ public class FileUploadController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/uploadPage", method = RequestMethod.POST)
+	@RequestMapping(value = "/uploadPage", method = {RequestMethod.POST,RequestMethod.GET} )
 	public String uploadPage(@RequestParam(value="signed_request",defaultValue="") String signedRequestParam,
 			                 Locale locale, Model model) {
 		
